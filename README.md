@@ -7,7 +7,7 @@ PEP484等に準じ書いてるつもりです。
 ```
 
 ## 問題点
-> Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification.
+> Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification. 
 [引用元](https://www.python.org/dev/peps/pep-0484/#abstract)
 
 現在禁止してるので警告に変更するべきかもしれない
@@ -24,7 +24,7 @@ example(5)
 #result->5
 
 example("a")
-#TypeError("The type of argument (arg_1) is int.")
+#result->TypeError("The type of argument (arg_1) is int.")
 
 ```
 
