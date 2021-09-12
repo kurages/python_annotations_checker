@@ -12,6 +12,11 @@ PEP484等に準じ書いてるつもりです。
 
 現在禁止してるので警告に変更するべきかもしれない
 
+## install
+```bash
+pip install chk-args
+```
+
 ## 使用方法
 ```py
 from chk_args import chk_args
