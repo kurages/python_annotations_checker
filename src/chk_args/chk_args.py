@@ -5,6 +5,7 @@ from typing import get_type_hints, Any
 class AnnotationMismatchError(TypeError):
 	def __init__(self, argName:str, annotationsType:Any):
 		self.message = f"Mismatch annotation and argument types.\nThe type of argument ({argName}) is {annotationsType}."
+		super().__init__(self.message)
 
 	def __str__(self):
 		return f"AnnotationMismatchError: {self.message}"
@@ -12,9 +13,9 @@ class AnnotationMismatchError(TypeError):
 
 def chk_args(func):
 	spec = inspect.getfullargspec(func)
-	annotations = spec.annotations
+	annotations:dict = spec.annotations
 
-	def _chk_args(argName:str, val:Any):
+	def _chk_args(argName:str, val:Any) -> Any:
 		if argName in annotations:
 			if annotations[argName] == Any:
 				return val
@@ -29,7 +30,7 @@ def chk_args(func):
 			#未指定
 			return val
 
-	def wrapper(*args:list, **kwargs:dict):
+	def wrapper(*args:tuple, **kwargs:dict) -> Any:
 		i = 0
 		_args = list(args)
 		for argName, val in zip(spec.args, args):

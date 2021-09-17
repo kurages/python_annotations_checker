@@ -1,1 +1,4 @@
-from .chk_args import chk_args
+from .chk_args import (
+    chk_args,
+    AnnotationMismatchError
+)
